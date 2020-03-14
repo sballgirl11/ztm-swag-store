@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-snipcart-starter",
+  "name": "ztm-swag-store",
   "private": true,
-  "description": "A starter for a simple e-commerce site using Snipcart",
+  "description": "A swag store for the ZTM community.",
   "version": "0.1.0",
-  "author": "Issy Dennis <hello@issydennis.com>",
+  "author": "Brittney Postma <bDesignedWebDev@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.19.41",
@@ -37,16 +37,8 @@
   "devDependencies": {
     "prettier": "^1.18.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",

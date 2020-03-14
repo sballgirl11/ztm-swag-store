@@ -7,40 +7,40 @@ import styled from "styled-components"
 
 import Layout from "../components/layout";
 
+const ItemWrapper = styled.div`
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+`
+
 const Heading = styled.h1`
   font-weight: 900;
   font-size: 1.5em;
-  margin: 20px 0;
 `
 
 const ImgStyled = styled(Img)`
-  width: 100%;
-  height: 400px;
+  max-width: 350px;
 `
 
 const Price = styled.p`
-  margin: 20px 0;
-  padding: 10px;
   font-weight: 700;
-  background: ${props => props.theme.colors.primaryAccent};
+  
 `
 const Description = styled.p`
-  margin: 20px 0;
-  padding: 10px;
 `
 
 const Dropdown = styled.select`
   display: block;
   padding: 10px;
   margin: 10px 0;
-  background: ${props => props.theme.colors.secondaryAccent};
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.25);
   font-weight: 700;
   border: none;
   outline: none;
 `
 const DropdownOption = styled.option`
   padding: 10px;
-  background: ${props => props.theme.colors.secondaryAccent};
   font-weight: 700;
   border: none;
   outline: none;
@@ -48,7 +48,9 @@ const DropdownOption = styled.option`
 
 const BuyButton = styled.button`
   padding: 20px;
-  background: ${props => props.theme.colors.secondaryAccent};
+  background-color: #F51767;
+  color: white;
+  text-transform: uppercase;
   font-weight: 700;
 `
 
@@ -82,33 +84,34 @@ class Item extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <Heading>{item.frontmatter.title}</Heading>
+        <ItemWrapper>
+          <Heading>{item.frontmatter.title}</Heading>
 
-        <ImgStyled fluid={item.frontmatter.image.childImageSharp.fluid} />
+          <ImgStyled fluid={item.frontmatter.image.childImageSharp.fluid} />
 
-        <Price>£{this.updatePrice(item.frontmatter.price, item.frontmatter.customField.values)}</Price>
-        <Description>{item.frontmatter.description}</Description>
-        <Dropdown
-          id={item.frontmatter.customField.name}
-          onChange={(e) => this.setSelected(e.target.value)}
-          value={this.state.selected}>
-          {item.frontmatter.customField.values.map((option) => (<DropdownOption key={option.name}>{option.name}</DropdownOption>))}
-        </Dropdown>
+          <Price>USD {this.updatePrice(item.frontmatter.price, item.frontmatter.customField.values)}</Price>
+          <Description>{item.frontmatter.description}</Description>
+          <Dropdown
+            id={item.frontmatter.customField.name}
+            onChange={(e) => this.setSelected(e.target.value)}
+            value={this.state.selected}>
+            {item.frontmatter.customField.values.map((option) => (<DropdownOption key={option.name}>{option.name}</DropdownOption>))}
+          </Dropdown>
 
-        <BuyButton
-          className='snipcart-add-item'
-          data-item-id={item.frontmatter.id}
-          data-item-price={item.frontmatter.price}
-          data-item-name={item.frontmatter.title}
-          data-item-description={item.frontmatter.description}
-          data-item-image={item.frontmatter.image.childImageSharp.fluid.src}
-          data-item-url={"https://gatsby-snipcart-starter.netlify.com" + item.fields.slug} //REPLACE WITH OWN URL
-          data-item-custom1-name={item.frontmatter.customField ? item.frontmatter.customField.name : null}
-          data-item-custom1-options={this.createString(item.frontmatter.customField.values)}
-          data-item-custom1-value={this.state.selected}>
-          Add to basket
-        </BuyButton>
-
+          <BuyButton
+            className='snipcart-add-item'
+            data-item-id={item.frontmatter.id}
+            data-item-price={item.frontmatter.price}
+            data-item-name={item.frontmatter.title}
+            data-item-description={item.frontmatter.description}
+            data-item-image={item.frontmatter.image.childImageSharp.fluid.src}
+            data-item-url={"https://ztm-swag-store.netlify.com/" + item.fields.slug} 
+            data-item-custom1-name={item.frontmatter.customField ? item.frontmatter.customField.name : null}
+            data-item-custom1-options={this.createString(item.frontmatter.customField.values)}
+            data-item-custom1-value={this.state.selected}>
+            Add To Cart
+          </BuyButton>
+        </ItemWrapper>
       </Layout>
     )
   }

@@ -27,8 +27,18 @@ export const GlobalStyle = createGlobalStyle`
     footer, header, hgroup, menu, nav, section {
        display: block;
     }
+    html {
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      height: 100%;
+      width: 100vw;
+    }
     body {
        line-height: 1;
+       width: 100vw;
+       height: 100%;
+       overflow-x: hidden;
     }
     ol, ul {
        list-style: none;
@@ -51,13 +61,6 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body {
-      padding: 0;
-      margin: 0;
-      font-family: Montserrat, sans-serif;
-      font-display: block;
-
-    }
     a {
       text-decoration: none;
       color: inherit;

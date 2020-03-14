@@ -9,12 +9,14 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const ThumbnailsWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
+    width: 50%;
+    left: 25%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
+    grid-gap: 1.5em;
+    margin-bottom: 1.5em; 
 `
 
 class BlogIndex extends React.Component {
@@ -25,23 +27,21 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All items" />
-      <ThumbnailsWrapper>
-        {items.map(({ node }) => {
-          const { title, image, price } = node.frontmatter
-          return (
-            <ItemThumbnail
-              key={node.fields.slug}
-              link={node.fields.slug}
-              heading={title}
-              image={image.childImageSharp.fluid}
-              price={price}
-            />
-          )
-        })}
-      </ThumbnailsWrapper>
-        
-
+        <SEO title="Products" />
+        <ThumbnailsWrapper>
+          {items.map(({ node }) => {
+            const { title, image, price } = node.frontmatter
+            return (
+              <ItemThumbnail
+                key={node.fields.slug}
+                link={node.fields.slug}
+                heading={title}
+                image={image.childImageSharp.fluid}
+                price={price}
+              />
+            )
+          })}
+        </ThumbnailsWrapper>
       </Layout>
     )
   }

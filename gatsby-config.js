@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `E-commerce Snipcart and Gatsby Starter`,
-    author: `Issy Dennis`,
-    description: `A simple e-commerce shop using Gatsby and Snipcart.`,
-    siteUrl: `https://gatsby-snipcart-starter.netlify.com/`,
+    title: `ZTM Swag Store`,
+    author: `Brittney Postma`,
+    description: `A swag store for the ZTM community.`,
+    siteUrl: `https://ztm-swag-store.netlify.com/`,
   },
   plugins: [
     {
@@ -61,7 +61,7 @@ module.exports = {
       resolve: 'gatsby-plugin-snipcart',
       options: {
         //replace with own Snipcart API key
-        apiKey: 'MjQ2MDY4MDctMDZkYi00ZTY0LWFlODItNzhlMmEzZDg1NTBiNjM2OTc2Nzk1NjcwMTU3MTkx',
+        apiKey: 'ZTU4YTVkMzAtZDdjYi00NGU3LWE2YTktZWI2ZWRjY2JmZmM3NjM3MTk3MDM3OTI1NTY0OTYw',
         autopop: true,
           }
     },

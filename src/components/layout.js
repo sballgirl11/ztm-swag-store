@@ -3,33 +3,53 @@ import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../styles/theme';
 import { GlobalStyle } from '../styles/globalStyle';
 
+import NavBar from './Nav/NavBar'
 import HeaderMain from './Headers/HeaderMain';
-import HeaderMinor from './Headers/HeaderMinor';
+
+import Andrei from '../images/andrei.png'
 
 
 const PageWrapper = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  width: 90%;
+  font-family: 'Barlow', sans-serif;
+  display: grid;
+  grid-template-rows: 80px 1fr 50px;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+`
 
+const NavStyled = styled.nav`
+  position: sticky;
+  padding: 0 20px;
+  top: 0px;
+  height: 80px;
+  width: 98;
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  z-index: 1000;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: justify;
+  justify-content: space-between;
 `
 
 const MainSection = styled.main`
-  margin: 30px 0;
-  width: 100%;
+  background: url(${Andrei}) no-repeat fixed bottom left;
+  height: 100%;
 `
 
 const FooterStyled = styled.footer`
-  width: 100%;
-  padding: 20px;
-  text-align: right;
-
-  @media (max-width: 600px) {
-    text-align: center;
-  }
-`
-const ExternalLink = styled.a`
-  color: #c59fc5;
+  height: 50px;
+  width: 100vw;
+  background: rgb(0, 0, 0) none repeat scroll 0% 0%;
+  color: rgb(255, 255, 255);
+  display: grid;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 0px;
+  grid-row: 3/-1;
 `
 
 
@@ -44,33 +64,20 @@ class Layout extends React.Component {
 
   render() {
     const { location, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const siteName = "Gwen's Cake Shop"
-    let header
-
-    if (location.pathname === rootPath) {
-      header = (
-        <HeaderMain shopName={siteName}>
-        </HeaderMain>
-      )
-    } else {
-      header = (
-        <HeaderMinor shopName={siteName}>
-        </HeaderMinor>
-      )
-    }
+    const siteName = "ZTM Swag Shop"   
 
     return (
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
           <PageWrapper>
-            {header}
-            <MainSection>{children}</MainSection>
+            <NavStyled>
+              <NavBar />
+            </NavStyled>
+                   
+            <MainSection><HeaderMain shopName={siteName} />  {children}</MainSection>
             <FooterStyled>
-              <strong>Gatsby Snipcart Starter
-           - Made by <ExternalLink href="https://www.issydennis.com/" target="_blank" rel="noopener noreferrer">Issy Dennis</ExternalLink>
-              </strong>
+              COPYRIGHT © {new Date().getFullYear()}, ZERO TO MASTERY INC.
             </FooterStyled>
           </PageWrapper>
         </>

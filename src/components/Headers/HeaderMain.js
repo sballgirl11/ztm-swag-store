@@ -11,12 +11,10 @@ const HeaderMainStyled = styled.div`
 `
 
 const ShopName = styled.h1`
-    background: ${props => props.theme.colors.main};
     padding: 20px;
     width: 50%;
     text-align: center;
     font-family: Heebo, sans-serif;
-    border: 4px solid ${props => props.theme.colors.secondaryAccent};
     font-size: 2.5em;
     font-weight: 900;
     @media (max-width: 600px) {
@@ -27,7 +25,6 @@ const ShopName = styled.h1`
 const LinkStyled = styled(Link)`
     box-shadow: none;
     text-decoration: none;
-    color: inherit;
 `
 
 const headerMain = (props) => {
