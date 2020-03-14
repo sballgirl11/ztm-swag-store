@@ -1,5 +1,5 @@
 ---
-title: Coding Mastery Mug
+title: ZTM Coffee Mug
 date: 2019-06-19
 id: 6
 price: 10

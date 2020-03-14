@@ -46,19 +46,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Snipcart Starter`,
-        short_name: `Gatsby Snipcart`,
+        name: `ZTM Swag Store`,
+        short_name: `ZTM Store`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `thistle`,
+        theme_color: `#F51767`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/images/logo.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-plugin-snipcart',
+      resolve: 'gatsby-plugin-snipcartv3',
       options: {
         //replace with own Snipcart API key
         apiKey: 'ZTU4YTVkMzAtZDdjYi00NGU3LWE2YTktZWI2ZWRjY2JmZmM3NjM3MTk3MDM3OTI1NTY0OTYw',
