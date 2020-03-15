@@ -1,5 +1,3 @@
-// This is the homepage.
-
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
@@ -19,7 +17,7 @@ const ThumbnailsWrapper = styled.div`
     margin-bottom: 1.5em; 
 `
 
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -49,7 +47,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
