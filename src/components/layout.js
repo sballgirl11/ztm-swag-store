@@ -63,7 +63,7 @@ class Layout extends React.Component {
 
 
   render() {
-    const { location, children } = this.props
+    const { children } = this.props
     const siteName = "ZTM Swag Shop"   
 
     return (
@@ -73,9 +73,8 @@ class Layout extends React.Component {
           <PageWrapper>
             <NavStyled>
               <NavBar />
-            </NavStyled>
-                   
-            <MainSection><HeaderMain shopName={siteName} />  {children}</MainSection>
+            </NavStyled>   
+            <MainSection><HeaderMain shopName={siteName} />{children}</MainSection>
             <FooterStyled>
               COPYRIGHT © {new Date().getFullYear()}, ZERO TO MASTERY INC.
             </FooterStyled>

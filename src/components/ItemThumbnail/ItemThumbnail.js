@@ -67,10 +67,10 @@ const itemThumbnail = (props) => {
             <Price><USD>USD </USD>{props.price.toFixed(2)}</Price>
             <AddButton
             className='snipcart-add-item'
-            // data-item-id={item.frontmatter.id}
-            // data-item-price={item.frontmatter.price}
-            // data-item-name={item.frontmatter.title}
-            // data-item-url={"https://ztm-swag-store.netlify.com/" + item.fields.slug}
+            data-item-id={props.id}
+            data-item-price={props.price}
+            data-item-name={props.title}
+            data-item-url={"https://ztm-swag-store.netlify.com/"}
             >
             Add To Cart
           </AddButton>

@@ -26,11 +26,11 @@ class BlogIndex extends React.Component {
     const items = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout title={siteTitle}>
         <SEO title="Products" />
         <ThumbnailsWrapper>
           {items.map(({ node }) => {
-            const { title, image, price } = node.frontmatter
+            const { title, image, price, id } = node.frontmatter
             return (
               <ItemThumbnail
                 key={node.fields.slug}
@@ -38,6 +38,7 @@ class BlogIndex extends React.Component {
                 heading={title}
                 image={image.childImageSharp.fluid}
                 price={price}
+                id={id}
               />
             )
           })}
@@ -66,6 +67,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             price
+            id
             image {
               childImageSharp {
                 fluid(maxWidth: 800) {
