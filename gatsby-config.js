@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `ZTM Swag Store`,
@@ -6,6 +10,15 @@ module.exports = {
     siteUrl: `https://ztm-swag-store.netlify.com/`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Sku'],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: false,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -37,6 +50,18 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `ztm-swag-store`,
+        short_name: `ZTM Store`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#F51767`,
+        display: `minimal-ui`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
@@ -57,14 +82,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-snipcartv3',
-      options: {
-        //replace with own Snipcart API key
-        apiKey: 'ZTU4YTVkMzAtZDdjYi00NGU3LWE2YTktZWI2ZWRjY2JmZmM3NjM3MTk3MDM3OTI1NTY0OTYw',
-        autopop: true,
-          }
-    },
     `gatsby-plugin-styled-components`,
   ],
 }

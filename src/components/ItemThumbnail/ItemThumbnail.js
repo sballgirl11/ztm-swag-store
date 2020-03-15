@@ -69,6 +69,7 @@ const itemThumbnail = (props) => {
             className='snipcart-add-item'
             data-item-id={props.id}
             data-item-price={props.price}
+            data-item-description={props.description}
             data-item-name={props.title}
             data-item-url={"https://ztm-swag-store.netlify.com/"}
             >

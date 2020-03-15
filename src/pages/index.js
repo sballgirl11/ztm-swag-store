@@ -30,7 +30,7 @@ class BlogIndex extends React.Component {
         <SEO title="Products" />
         <ThumbnailsWrapper>
           {items.map(({ node }) => {
-            const { title, image, price, id } = node.frontmatter
+            const { title, image, price, id, description } = node.frontmatter
             return (
               <ItemThumbnail
                 key={node.fields.slug}
@@ -39,6 +39,7 @@ class BlogIndex extends React.Component {
                 image={image.childImageSharp.fluid}
                 price={price}
                 id={id}
+                description={description}
               />
             )
           })}
@@ -68,6 +69,7 @@ export const pageQuery = graphql`
             title
             price
             id
+            description
             image {
               childImageSharp {
                 fluid(maxWidth: 800) {

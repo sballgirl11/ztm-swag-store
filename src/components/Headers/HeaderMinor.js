@@ -87,7 +87,6 @@ class HeaderMinor extends Component {
             </HeaderMinorStyled>
         )
     }
-
 }
 
 export default HeaderMinor;
